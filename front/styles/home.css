@@ -24,7 +24,7 @@ body {
 
 /* Estilos para los botones */
 .navbar .button {
-    background-color: #2ecc71;
+    background-color: #402bb9;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -124,6 +124,7 @@ body {
     margin: 0 auto; /* Centra el contenedor */
     gap: 15px; /* Espacio entre tarjetas */
     padding: 15px;
+    background-color: #3d34c0;
 }
 
 /* Tarjeta de película */
@@ -172,9 +173,19 @@ body {
 
 /* Géneros más compactos */
 .movie-info .genre span {
-    background-color: #2ecc71;
+    background-color: #362db1;
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.75rem;
     margin: 1px;
+}
+.navbar {
+    margin-bottom: 20px; /* Separa el navbar del contenido */
+}
+
+.movie-container {
+    padding: 20px;
+    background-color: #071a0f;
+    border-radius: 10px; /* Bordes redondeados para diferenciarlo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
 }
