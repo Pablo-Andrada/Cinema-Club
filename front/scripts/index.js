@@ -1,5 +1,6 @@
-
-
+    import  renderMovies  from "./renderMovies.js";
+    import $ from "jquery";
+    
     // Función para obtener películas desde la API
     $.get("https://students-api.up.railway.app/movies", function (movies) {
         renderMovies(movies);
