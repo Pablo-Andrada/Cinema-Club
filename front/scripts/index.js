@@ -11,7 +11,7 @@ const axios = require('axios');
 
 const fetchMovies = async () => {
     try {
-        const response = await axios.get("https://students-api.up.railway.app/movies");
+        const response = await axios.get("http://localhost:3000/movies");
         renderMovies(response.data); // Renderiza las películas con los datos obtenidos
     } catch (error) {
         console.error("Error al obtener las películas:", error);
