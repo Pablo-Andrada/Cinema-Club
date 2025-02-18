@@ -8,15 +8,16 @@ const axios = require('axios');
 // });
     
 // Función para obtener películas desde la API
-async function fetchMovies() {
+
+const fetchMovies = async () => {
     try {
-      const response = await axios.get("https://students-api.up.railway.app/movies");
-      renderMovies(response.data); // Renderiza las películas con los datos obtenidos
+        const response = await axios.get("https://students-api.up.railway.app/movies");
+        renderMovies(response.data); // Renderiza las películas con los datos obtenidos
     } catch (error) {
-      console.error("Error al obtener las películas:", error);
-      document.getElementById("movie-container").innerHTML = "<p>Error al cargar las películas. Intenta nuevamente.</p>";
+        console.error("Error al obtener las películas:", error);
+        document.getElementById("movie-container").innerHTML = "<p>Error al cargar las películas. Intenta nuevamente.</p>";
     }
-  }
+};
   
   // Llamamos a la función directamente
   fetchMovies();
