@@ -1,13 +1,25 @@
-    import  renderMovies  from "./renderMovies.js";
-    import $ from "jquery";
+import renderMovies from "./renderMovies.js";
+// import $ from "jquery";
+const axios = require('axios');
+
+//    // Función para obtener películas desde la API
+// $.get("https://students-api.up.railway.app/movies", function (movies) {
+//     renderMovies(movies);
+// });
     
-    // Función para obtener películas desde la API
-    $.get("https://students-api.up.railway.app/movies", function (movies) {
-        renderMovies(movies);
-    }).fail(function (error) {
-        console.error("Error al obtener las películas:", error);
-        movieContainer.innerHTML = "<p>Error al cargar las películas. Intenta nuevamente.</p>";
-    });
+// Función para obtener películas desde la API
+async function fetchMovies() {
+    try {
+      const response = await axios.get("https://students-api.up.railway.app/movies");
+      renderMovies(response.data); // Renderiza las películas con los datos obtenidos
+    } catch (error) {
+      console.error("Error al obtener las películas:", error);
+      document.getElementById("movie-container").innerHTML = "<p>Error al cargar las películas. Intenta nuevamente.</p>";
+    }
+  }
+  
+  // Llamamos a la función directamente
+  fetchMovies();
 
     
 
