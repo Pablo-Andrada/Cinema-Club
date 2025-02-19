@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form.css">
+  <link rel="stylesheet" href="../styles/index.css">
+  <title>Add Movie - Cinema Club</title>
+
+    <!-- Incluir axios desde el CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="navbar button">Back to Home</a>
+    </nav>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./movies.html">Movies</a></li>
+        <li><a href="./news.html">News</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Add a New Movie</h2>
+    <form id="movieForm" action="#" method="post">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="year">Year:</label>
+      <input type="number" id="year" name="year" min="1900" max="2099" required>
+
+      <label for="director">Director:</label>
+      <input type="text" id="director" name="director" required>
+
+      <label for="duration">Duration (hh:mm):</label>
+      <input type="text" id="duration" name="duration" pattern="^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$" placeholder="e.g., 02:30" required>
+
+      <!-- Género como checkbox -->
+      <label for="genre">Genre:</label>
+      <div id="genre">
+        <label><input type="checkbox" name="genre" value="Acción"> Acción</label>
+        <label><input type="checkbox" name="genre" value="Aventura"> Aventura</label>
+        <label><input type="checkbox" name="genre" value="Catástrofe"> Catástrofe</label>
+        <label><input type="checkbox" name="genre" value="Ciencia Ficción"> Ciencia Ficción</label>
+        <label><input type="checkbox" name="genre" value="Comedia"> Comedia</label>
+        <label><input type="checkbox" name="genre" value="Documentales"> Documentales</label>
+        <label><input type="checkbox" name="genre" value="Drama"> Drama</label>
+        <label><input type="checkbox" name="genre" value="Fantasía"> Fantasía</label>
+      </div>
+
+      <label for="rate">Rate:</label>
+      <input type="number" id="rate" name="rate" min="0" max="10" step="0.1" placeholder="e.g., 8.5" required>
+
+      <label for="poster">Poster Link:</label>
+      <input type="url" id="poster" name="poster" placeholder="e.g., https://example.com/poster.jpg" required>
+
+      <div class="form-buttons">
+        <button type="submit">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2024 Cinema Club. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Función para limpiar el formulario
+    function clearForm() {
+      document.getElementById("movieForm").reset();
+    }
+  
+    // Manejar el evento de envío del formulario
+    document.getElementById("movieForm").addEventListener("submit", async function(event) {
+      event.preventDefault(); // Evitar el envío del formulario
+  
+      // Obtener los valores del formulario
+      const title = document.getElementById("title").value;
+      const year = document.getElementById("year").value;
+      const director = document.getElementById("director").value;
+      const duration = document.getElementById("duration").value;
+      const genreSelected = document.querySelectorAll('input[name="genre"]:checked');
+      const rate = document.getElementById("rate").value;
+      const poster = document.getElementById("poster").value;
+  
+      // Verificar que todos los campos estén completos
+      if (!title || !year || !director || !duration || genreSelected.length === 0 || !rate || !poster) {
+        alert("Por favor, complete todos los campos.");
+      } else {
+        // Crear un array de géneros seleccionados
+        const genres = Array.from(genreSelected).map((checkbox) => checkbox.value);
+  
+        // Crear el objeto con los datos de la película
+        const movieData = {
+          title,
+          year,
+          director,
+          duration,
+          genre: genres, // Géneros seleccionados
+          rate,
+          poster
+        };
+  
+        try {
+          // Realizar la solicitud POST a la API
+          const response = await axios.post('http://localhost:3000/movies', movieData);
+          console.log('Película creada con éxito:', response.data);
+          // Aquí podrías agregar lógica para actualizar la UI, como limpiar el formulario, mostrar un mensaje de éxito, etc.
+          alert('Pelicula creada con éxito');
+        } catch (error) {
+          console.error('Error al crear la película:', error.response ? error.response.data : error);
+          // Mostrar error en caso de que la solicitud falle
+          alert('Hubo un error al crear la película');
+        }
+      }
+    });
+  </script>
+  
+</body>
+</html>
