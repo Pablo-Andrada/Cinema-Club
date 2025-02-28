@@ -115,5 +115,24 @@ module.exports = {
     getMovies : async() => {
         const movies = await Movie.find();
         return movies;
+    },
+    createMovie: async ({ title, year, director, duration, genre, rate, poster }) => {
+        // Validación para asegurarse de que todos los campos están completos
+        // if (!title || !year || !director || !duration || !genre || !rate || !poster) {
+        //     throw new Error("All fields are required to create a movie.");
+        // }
+
+        // Crear la película si todos los campos están completos
+        const newMovie = await Movie.create({ title, year, director, duration, genre, rate, poster });
+        return newMovie;
+    },
+    deleteMovieByName: async (title) => {
+        // Buscar y eliminar una película por su título
+        const deletedMovie = await Movie.findOneAndDelete({ title });
+        if (!deletedMovie) {
+            throw new Error("Movie not found");
+        }
+        return deletedMovie;
     }
+
 }
