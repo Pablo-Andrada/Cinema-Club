@@ -1,18 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="./styles/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <!-- Usamos la misma hoja base para mantener la coherencia -->
+  <link rel="stylesheet" href="./styles/home.css" />
+  <style>
+    /* Estilos globales */
+    body {
+      background-color: rgb(29, 28, 28);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Navbar */
+    nav.navbar {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      background-color: #353333;
+      padding: 15px;
+    }
+    
+    nav.navbar .button {
+      background-color: #402bb9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    nav.navbar .button:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    
+    nav.navbar .button:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+    
+    /* Contenedor principal */
+    main.about-me {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #071a0f;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Sección */
+    main.about-me section {
+      margin-bottom: 30px;
+    }
+    
+    main.about-me h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    main.about-me p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+      color: #ccc;
+    }
+    
+    /* Botones de contacto */
+    .contact-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .contact-buttons a {
+      background-color: #402bb9;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+    }
+    
+    .contact-buttons a:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    
+    .contact-buttons a:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="../index.html" class="navbar button">Back to Home</a>
-    </nav>
-    <main>
-        <h1>About Me</h1>
-        <p>Aquí irá la información sobre ti.</p>
-    </main>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar button">Back to Home</a>
+  </nav>
+  
+  <!-- Contenedor principal -->
+  <main class="about-me">
+    <section>
+      <h2>Acerca de mí</h2>
+      <p>
+        Soy desarrollador web con un fuerte enfoque en el backend, aunque tengo experiencia completa en el desarrollo de aplicaciones web de principio a fin. Trabajo con tecnologías como JavaScript, TypeScript, HTML, CSS, Node, Express, React, Redux, MongoDB, Mongoose, PostgreSQL y Sequelize. Cada proyecto es una oportunidad para aprender y mejorar.
+      </p>
+      <p>
+        Puedes ver mis proyectos en mi GitHub o conocer más sobre mi trabajo en mi web personal.
+      </p>
+      <div class="contact-buttons">
+        <a href="https://github.com/Pablo-Andrada" target="_blank">My Github</a>
+        <a href="https://pablo-andrada-portfolio.vercel.app/" target="_blank">My Web Site</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
