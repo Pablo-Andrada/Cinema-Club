@@ -1,7 +1,7 @@
 
 const movieContainer = document.getElementById("movie-container");
 // Función para renderizar las películas
-export default function renderMovies(movies) {
+const renderMovies = (movies) => {
     movieContainer.innerHTML = ""; // Limpiar el contenedor antes de agregar nuevas tarjetas
 
     movies.forEach(movie => {
@@ -25,4 +25,4 @@ export default function renderMovies(movies) {
         movieContainer.appendChild(movieCard);
     });
 }
-
+module.exports = renderMovies;

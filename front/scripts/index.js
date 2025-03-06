@@ -7,7 +7,7 @@ const axios = require('axios');
 //     renderMovies(movies);
 // });
     
-// Función para obtener películas desde la API
+// Función para obtener películas desde la Base de datos
 
 const fetchMovies = async () => {
     try {
