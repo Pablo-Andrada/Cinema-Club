@@ -3,12 +3,12 @@ const router = require("./routes/index");
 const morgan = require("morgan");
 const cors = require("cors");
 
-const app = express();
+const server = express();
 
-app.use(morgan("dev"));
-app.use(cors());
-app.use(express.json());
+server.use(morgan("dev"));
+server.use(cors());
+server.use(express.json());
 
-app.use(router);
+server.use(router);
 
-module.exports = app;
+module.exports = server;

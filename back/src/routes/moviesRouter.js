@@ -4,6 +4,7 @@ const validateMovieDataMiddleware = require("../validateMovieDataMiddleware");
 
 
 const moviesRouter = Router();
+
 moviesRouter.get("/", moviesController.getMoviesController);
 moviesRouter.post("/",validateMovieDataMiddleware ,moviesController.crateMovieController);
 // Ruta para eliminar una película por su nombre
