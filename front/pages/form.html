@@ -1,19 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/form.css">
-  <link rel="stylesheet" href="../styles/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Movie - Cinema Club</title>
-
-    <!-- Incluir axios desde el CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- Eliminamos los CSS feos y definimos estilos internos acordes -->
+  <style>
+    /* Estilos globales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(29, 28, 28);
+      color: #fff;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Navbar */
+    nav.navbar {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      background-color: #353333;
+      padding: 15px;
+    }
+    nav.navbar .button {
+      background-color: #402bb9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+    }
+    nav.navbar .button:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    nav.navbar .button:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+    /* Header secundario (si es necesario) */
+    header nav ul {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    header nav ul li a {
+      background-color: #402bb9;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    header nav ul li a:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    header nav ul li a:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+    /* Contenedor principal del formulario */
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #071a0f;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    main h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    /* Estilos del formulario */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="url"],
+    form input[type="checkbox"],
+    form input[type="time"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+    /* Ajuste para el checkbox, agrupándolos */
+    #genre {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    #genre label {
+      background-color: #402bb9;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #genre label:hover {
+      background-color: #27ae60;
+    }
+    /* Botones del formulario */
+    .form-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .form-buttons button {
+      background-color: #402bb9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+    }
+    .form-buttons button:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    .form-buttons button:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #353333;
+      color: #fff;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- Incluir axios desde el CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="../index.html" class="navbar button">Back to Home</a>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar button">Back to Home</a>
+  </nav>
+
+  <!-- Header secundario de navegación (opcional) -->
   <header>
     <nav>
       <ul>
@@ -25,6 +178,7 @@
     </nav>
   </header>
 
+  <!-- Contenido principal -->
   <main>
     <h2>Add a New Movie</h2>
     <form id="movieForm" action="#" method="post">
@@ -111,11 +265,9 @@
           // Realizar la solicitud POST a la API
           const response = await axios.post('http://localhost:3000/movies', movieData);
           console.log('Película creada con éxito:', response.data);
-          // Aquí podrías agregar lógica para actualizar la UI, como limpiar el formulario, mostrar un mensaje de éxito, etc.
-          alert('Pelicula creada con éxito');
+          alert('Película creada con éxito');
         } catch (error) {
           console.error('Error al crear la película:', error.response ? error.response.data : error);
-          // Mostrar error en caso de que la solicitud falle
           alert('Hubo un error al crear la película');
         }
       }

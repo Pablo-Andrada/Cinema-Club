@@ -1,18 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About this project</title>
-    <link rel="stylesheet" href="./styles/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About my project</title>
+  <link rel="stylesheet" href="./styles/home.css" />
+  <style>
+    /* Reajustamos el body para que coincida con el home */
+    body {
+      background-color: rgb(29, 28, 28);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Ajustamos la navbar para que coincida con el home */
+    nav.navbar {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      background-color: #353333;
+      padding: 15px;
+    }
+
+    /* Estilo para los botones de la navbar */
+    nav.navbar .button {
+      background-color: #402bb9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav.navbar .button:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+
+    nav.navbar .button:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+
+    /* Contenedor principal */
+    main.about-content {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #071a0f;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Encabezados */
+    main.about-content h1,
+    main.about-content h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    /* Párrafos */
+    main.about-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: justify;
+      color: #ccc;
+    }
+
+    /* Secciones dentro del main */
+    main.about-content section {
+      margin-bottom: 30px;
+    }
+    
+    /* Estilos para los botones de contacto */
+    .contact-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .contact-buttons a {
+      background-color: #402bb9;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+    }
+    
+    .contact-buttons a:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    
+    .contact-buttons a:active {
+      background-color: #1e8449;
+      transform: scale(0.98);
+    }
+  </style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="../index.html" class="navbar button">Back to Home</a>
-    </nav>
-    <main>
-        <h1>About this project</h1>
-        <p>Aquí irá la información sobre About this project.</p>
-    </main>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar button">Back to Home</a>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="about-content">
+    <h1>About my project</h1>
+
+    <section>
+      <h2>Sobre el proyecto</h2>
+      <p>
+        Este proyecto nace con la idea de crear una plataforma de consulta de películas. No se trata de un reproductor de cine, sino de un espacio donde los usuarios puedan leer críticas, descubrir datos curiosos y obtener información detallada sobre cada película. La idea es que, al conocer estas reseñas y opiniones, el público pueda decidir si una película vale la pena ver o si, por el contrario, prefiere no invertir su tiempo en ella.
+      </p>
+      <p>
+        La plataforma se ha diseñado para ser intuitiva y visualmente atractiva, ofreciendo tarjetas de películas con datos relevantes y reseñas que invitan a profundizar en el mundo cinematográfico. Además, se prevé implementar funcionalidades que permitan a los usuarios dejar sus propias opiniones, creando así una comunidad dinámica y participativa.
+      </p>
+    </section>
+
+    
+  </main>
 </body>
 </html>
