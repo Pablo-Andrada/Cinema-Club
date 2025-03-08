@@ -1,13 +1,7 @@
 import renderMovies from "./renderMovies.js";
-// import $ from "jquery";
 const axios = require('axios');
 
-//    // Función para obtener películas desde la API
-// $.get("https://students-api.up.railway.app/movies", function (movies) {
-//     renderMovies(movies);
-// });
-    
-// Función para obtener películas desde la Base de datos
+
 
 const fetchMovies = async () => {
     try {
