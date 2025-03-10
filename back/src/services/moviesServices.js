@@ -126,9 +126,8 @@ module.exports = {
         const newMovie = await Movie.create({ title, year, director, duration, genre, rate, poster });
         return newMovie;
     },
-    deleteMovieByName: async (title) => {
-        // Buscar y eliminar una película por su título
-        const deletedMovie = await Movie.findOneAndDelete({ title });
+    deleteMovieById: async (id) => {
+        const deletedMovie = await Movie.findByIdAndDelete(id);
         if (!deletedMovie) {
             throw new Error("Movie not found");
         }

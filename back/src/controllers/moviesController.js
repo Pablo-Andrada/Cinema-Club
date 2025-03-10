@@ -23,13 +23,22 @@ module.exports = {
             })
         }
     },
-    deleteMovieController: async (req, res) => {
+    // deleteMovieController: async (req, res) => {
+    //     try {
+    //         const { title } = req.params;  // Usamos params para obtener el título de la URL
+    //         const deletedMovie = await moviesServices.deleteMovieByName(title);
+    //         res.status(200).json({ message: "Pelicula eliminada con éxito", movie: deletedMovie });
+    //     } catch (error) {
+    //         res.status(500).json({ error: "Error al eliminar la película" });
+    //     }
+    // }
+    deleteMovie : async (req, res) => {
         try {
-            const { title } = req.params;  // Usamos params para obtener el título de la URL
-            const deletedMovie = await moviesServices.deleteMovieByName(title);
-            res.status(200).json({ message: "Pelicula eliminada con éxito", movie: deletedMovie });
+            const { id } = req.params; // 🔹 Aquí obtenemos el ID de la URL
+            const deletedMovie = await moviesServices.deleteMovieById(id);
+            res.status(200).json({ message: "Película eliminada", deletedMovie });
         } catch (error) {
-            res.status(500).json({ error: "Error al eliminar la película" });
+            res.status(500).json({ error: error.message });
         }
     }
 };
