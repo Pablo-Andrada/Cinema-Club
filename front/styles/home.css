@@ -1,30 +1,31 @@
-Reset de márgenes y padding
+/* Reset de márgenes y padding */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     justify-content: center;
 }
-h1{
+
+h1 {
     display: flex;
     justify-content: center;
-
 }
-/* Estilo para el body  */
+
+/* Estilo para el body */
 body {
     font-family: Arial, sans-serif;
-    background-color:rgb(29, 28, 28);
+    background-color: rgb(29, 28, 28);
     color: #fff;
 }
 
 /* Estilo para el navbar */
-/* Estilos generales para el navbar */
 .navbar {
     display: flex;
     justify-content: center;
     gap: 15px;
     background-color: #353333;
     padding: 15px;
+    margin-bottom: 20px;
 }
 
 /* Estilos para los botones */
@@ -41,7 +42,6 @@ body {
     font-weight: bold;
 }
 
-/* Hover y efecto al presionar */
 .navbar .button:hover {
     background-color: #27ae60;
     transform: scale(1.05);
@@ -53,83 +53,16 @@ body {
 }
 
 /* Contenedor principal de las películas */
-/* .movie-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-} */
-
-/* Estilo para cada tarjeta de película */
-/* .movie-card {
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease-in-out;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-} */
-
-/* Imagen de la película */
-/* .movie-card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 3px solid #333;
-} */
-
-/* Contenedor de la información de la película */
-/* .movie-info {
-    padding: 15px;
-    text-align: center;
-}
-
-.movie-info h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.movie-info p {
-    font-size: 0.9rem;
-    color: #bbb;
-    margin: 5px 0;
-}
-
-.movie-info .rate {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #f39c12;
-}
-
-.movie-info .genre {
-    margin-top: 10px;
-}
-
-.movie-info .genre span {
-    background-color: #2ecc71;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    margin: 2px;
-}
-
-.movie-info .duration,
-.movie-info .year {
-    font-size: 0.9rem;
-    color: #ccc;
-    margin-top: 5px;
-} */
-/* Contenedor principal de las películas */
 .movie-container {
     display: grid;
-    grid-template-columns: repeat(5,1fr); /* Hasta 5 por fila */
+    grid-template-columns: repeat(5, 1fr); /* Hasta 5 por fila */
     max-width: 1200px; /* Controla el ancho máximo */
     margin: 0 auto; /* Centra el contenedor */
     gap: 15px; /* Espacio entre tarjetas */
-    padding: 15px;
-    background-color: #3d34c0;
+    padding: 20px;
+    background-color: #071a0f;
+    border-radius: 10px; /* Bordes redondeados para diferenciarlo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
 }
 
 /* Tarjeta de película */
@@ -140,6 +73,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease-in-out;
     width: 100%;
+    position: relative; /* Necesario para posicionar la "X" dentro de la tarjeta */
 }
 
 .movie-card:hover {
@@ -184,33 +118,36 @@ body {
     font-size: 0.75rem;
     margin: 1px;
 }
-.navbar {
-    margin-bottom: 20px; /* Separa el navbar del contenido */
-}
 
-.movie-container {
-    padding: 20px;
-    background-color: #071a0f;
-    border-radius: 10px; /* Bordes redondeados para diferenciarlo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
-}
-.delete-btn {
+/* Estilización de la "X" para borrar la película usando la clase delete-button */
+.delete-button {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: red;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(255, 0, 0, 0.8);
     color: white;
     border: none;
     font-size: 16px;
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    opacity: 0;              /* Oculto por defecto */
+    pointer-events: none;    /* No interactivo cuando está oculto */
+    transition: opacity 0.3s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-.delete-btn:hover {
-    background-color: darkred;
+/* La "X" aparece al hacer hover sobre la tarjeta */
+.movie-card:hover .delete-button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Efecto hover en la "X" */
+.delete-button:hover {
+    background-color: rgba(139, 0, 0, 0.9);
 }
